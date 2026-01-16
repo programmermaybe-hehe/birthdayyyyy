@@ -1,0 +1,93 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300italic);
+
+body{
+  margin:0;
+  font-family:sans-serif;
+  text-align:center;
+  overflow:hidden;
+  color:#111;
+}
+
+.bg{
+  position:fixed;
+  inset:0;
+  background:url("bg.jpg") center/cover fixed;
+  z-index:-2;
+}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(255,255,255,0.5);
+  backdrop-filter:blur(6px);
+  z-index:-1;
+}
+
+.scene{
+  position:absolute;
+  width:100%;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  transition:1s;
+}
+
+.hidden{
+  opacity:0;
+  pointer-events:none;
+  transform:scale(1.05);
+}
+
+/* Cake */
+.cake{
+  position:absolute;
+  top:228px;
+  left:50%;
+  margin-left:-2.4px;
+  width:5px;
+  height:35px;
+  background:#fff;
+  border-radius:10px;
+  cursor:pointer;
+}
+.fuego{width:7px;height:18px;border-radius:50%;position:absolute;top:-20px}
+@keyframes fuego{50%{opacity:.4}}
+
+.text{color:#8b6a60;font-family:'Lato',sans-serif;font-style:italic}
+
+/* Gift */
+.gift{
+  width:160px;height:160px;
+  background:linear-gradient(#ff8fab,#ffb3c6);
+  border-radius:18px;
+  box-shadow:0 20px 40px rgba(0,0,0,.3);
+}
+.gift::before,.gift::after{
+  content:"";position:absolute;background:#fff
+}
+.gift::before{width:20px;height:100%;left:50%;transform:translateX(-50%)}
+.gift::after{height:20px;width:100%;top:50%;transform:translateY(-50%)}
+.open{animation:giftOpen 1s forwards}
+@keyframes giftOpen{to{transform:scale(0)}}
+
+/* Runner */
+#runner{position:absolute;bottom:30px;left:-120px;width:120px;transition:1.2s}
+.run{left:110%}
+
+/* Letters */
+.letter{width:90px;opacity:0;position:absolute;transition:1s}
+
+/* Letter Scene */
+.letterScene{background:rgba(255,255,255,.7)}
+.borderImgs{display:flex;gap:15px}
+.borderImgs img{width:120px;height:120px;object-fit:cover;border-radius:12px}
+.centerLetter{background:#fff;padding:40px;border-radius:20px}
+
+/* Bouquet */
+.bouquet{width:220px;cursor:pointer;animation:float 2s infinite alternate}
+@keyframes float{to{transform:translateY(-20px)}}
+
+/* Hugs */
+#hugBox img{width:200px;margin:10px}
