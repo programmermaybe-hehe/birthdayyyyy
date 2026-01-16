@@ -1,5 +1,36 @@
 const music=document.getElementById("bgMusic");
 document.body.addEventListener("click",()=>music.play(),{once:true});
+// Attach this code after your page loads (e.g., at the end of <body> or inside DOMContentLoaded event)
+document.addEventListener('DOMContentLoaded', function() {
+    // Select the candle element by its id
+    const candle = document.getElementById('candle');
+    if (!candle) {
+        console.warn('Candle element not found!');
+        return;
+    }
+
+    // Define what should happen when candle is "blown out"
+    function goNextStep() {
+        // Example animation: fade out the candle flame
+        const flame = candle.querySelector('.flame'); // if you use a flame sub-element
+        if (flame) {
+            flame.style.transition = "opacity 0.7s";
+            flame.style.opacity = 0;
+        }
+        // 1 second later, show a message or go to another page
+        setTimeout(() => {
+            // You could show a message:
+            // document.getElementById('message').style.display = 'block';
+
+            // Or redirect:
+            window.location.href = "nextpage.html"; // or your next step URL
+        }, 900);
+    }
+
+    // Attach event handlers
+    candle.addEventListener('click', goNextStep);
+    candle.addEventListener('touchstart', goNextStep);
+});
 
 function showScene(hide,show){
   hide.classList.add("hidden");
